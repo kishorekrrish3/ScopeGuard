@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: scopeguard-saas
+    runtime: node
+    plan: starter
+    region: oregon
+    buildCommand: npm install && npm run build
+    startCommand: npm run start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: GEMMA_MODEL_ID
+        value: gemma3:4b
+      - key: OLLAMA_BASE_URL
+        sync: false
+      - key: MONGODB_URI
+        sync: false
+      - key: SENTRY_DSN
+        sync: false
+      - key: NEXT_PUBLIC_SENTRY_DSN
+        sync: false
